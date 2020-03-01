@@ -283,6 +283,8 @@ class NEOSearcher(object):
             if query.return_object == NearEarthObject:
                 return neo_objects[0:query.number]
             elif query.return_object == OrbitPath:
+                if not neo_objects:
+                    return []
                 orbits = map(lambda n: n.orbits, neo_objects)
                 if not orbits:
                     return orbits[0:query.number]
@@ -303,6 +305,8 @@ class NEOSearcher(object):
             if query.return_object == NearEarthObject:
                 return list(neo_objects)[0:query.number]
             elif query.return_object == OrbitPath:
+                if not neo_objects:
+                    return []
                 orbits = map(lambda n: n.orbits, neo_objects)
                 if not orbits:
                     return orbits[0:query.number]
